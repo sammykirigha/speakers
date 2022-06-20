@@ -23,10 +23,12 @@ const SpeakersList = () => {
                     <Speaker
                         key={index}
                         speaker={speaker}
-                        onFavoriteClick={() => updateRecord({
+                        onFavoriteClick={(doneCallback) => {
+                            updateRecord({
                             ...speaker,
-                            favorite: !speaker.favorite
-                        })}
+                            favorite: !speaker.favorite,
+                        }, doneCallback)
+                        }}
                     />
                 );
             })}

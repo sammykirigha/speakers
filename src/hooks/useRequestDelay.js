@@ -17,10 +17,10 @@ const useRequestDelay = (delayTime = 1000, initialData = []) => {
     useEffect(() => {
         async function delayfunc() {
             try {
-                // await delay(delayTime);
+                await delay(delayTime);
                 // throw new Error("Had Error...");
                 setRequestStatus(REQUEST_STATUS.SUCCESS);
-                // setData(data);
+                setData(data);
             } catch (error) {
                  setRequestStatus(REQUEST_STATUS.FAILURE);
                 setError(error);
@@ -31,17 +31,25 @@ const useRequestDelay = (delayTime = 1000, initialData = []) => {
     }, []);
 
     
-    const updateRecord = (recordUpdated) => {
+    const updateRecord = (recordUpdated, doneCallback) => {
+        const originRecords = [...data]
 		const newRecords = data.map((rec) => {
 			return rec.id === recordUpdated.id ? recordUpdated : rec
 		})
 
 		async function delayFunction() {
 			try {
-				await delay(delayTime)
 				setData(newRecords)
+                await delay(delayTime)
+                if (doneCallback) {
+                    doneCallback()
+                }
 			} catch (error) {
-				console.log(error);
+                console.log(error);
+                if (doneCallback) {
+                    doneCallback()
+                }
+                setData(originRecords)
 			}
 		}
 		delayFunction()
