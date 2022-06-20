@@ -1,10 +1,11 @@
-import SpeakersList from "./components/SpeakersList";
+import Layout from "./components/Layout";
+import ThemeProvider from "./contexts/ThemeContext";
 
 function App() {
   return (
-    <div className="bg-blue-500">
-      <SpeakersList />
-    </div>
+    <ThemeProvider>
+      <Layout />
+    </ThemeProvider>
   );
 }
 
