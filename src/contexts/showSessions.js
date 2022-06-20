@@ -6,7 +6,6 @@ export const SessionContext = createContext()
 const SessionProvider = ({ children }) => {
 	const [showSessions, setshowSession] = useSessions()
 
-
   return (
 	  <SessionContext.Provider value={{showSessions, setshowSession}}>
 		  {children}
@@ -14,4 +13,4 @@ const SessionProvider = ({ children }) => {
   )
 }
 
-export default SessionProvider
+export default SessionProvider;

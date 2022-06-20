@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const useTheme = () => {
-	const [theme, setTheme] = useState("light")
+    const [theme, setTheme] = useState("dark");
 
-		const themeToggle = (event) => {setTheme(event.target.value)}
-	
-  return [theme, setTheme, themeToggle]
-}
+    const themeToggle = (event) => {
+        setTheme(event.target.value);
+    };
 
-export default useTheme
+    return [theme, setTheme, themeToggle];
+};
+
+export default useTheme;

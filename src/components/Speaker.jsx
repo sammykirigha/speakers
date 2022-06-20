@@ -8,7 +8,7 @@ import SpeakerBio from './SpeakerBio'
 
 export const Speaker = ({ speaker, onFavoriteClick }) => {
 	
-  const { showSessions, setshowSession, togoogleSessions } = useContext(SessionContext)
+  const { showSessions } = useContext(SessionContext)
 
   return (
 	  <div className='bg-white border rounded-md flex flex-col'>
